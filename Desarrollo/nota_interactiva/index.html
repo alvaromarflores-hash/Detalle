@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <canvas id="canvasEstrellas"></canvas>
+
+    <div id="universo-cinematico" class="oculto">
+        <img src="tierra.png" alt="Tierra" class="astro tierra">
+        <img src="luna.png" alt="Luna" class="astro luna">
+        <img src="nave.png" alt="Nave" class="astro nave" id="naveSpace">
+    </div>
+
+    <div id="pantalla-login" class="pantalla">
+        <div class="caja-cristal">
+            <h2>ACCESO SIDERAL</h2>
+            <div class="campos-login">
+                <input type="text" id="input-nombre" placeholder="Nombre Pasajero" autocomplete="off">
+                <div class="fila-fechas">
+                    <input type="number" id="input-dia" placeholder="Día" min="1" max="31">
+                    <input type="number" id="input-mes" placeholder="Mes" min="1" max="12">
+                </div>
+            </div>
+            <button id="btn-entrar">INICIAR VIAJE</button>
+            <p id="mensaje-error" class="oculto">Fallo de sincronización sideral.</p>
+        </div>
+    </div>
+
+    <div id="pantalla-presentacion" class="pantalla oculto">
+        <div id="contenedor-mensajes">
+            
+            <h1 id="msg-1" class="frase">
+                <span>Nunca</span> <span>es</span> <span>tarde</span> <span>para</span> 
+                <span>dar</span> <span>las</span> <span>felicitaciones</span>
+            </h1>
+
+            <h1 id="msg-2" class="frase">
+                <span>Te deseo</span> <span>lo mejor</span> <span>del universo</span> 
+            </h1>
+
+            <h1 id="msg-3" class="frase final-text">
+                <span>Feliz</span> <span>cumpleaños Nallomi</span>
+            </h1>
+
+        </div>
+    </div>
+
+    <audio id="miMusica" src="musica.mp3"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>

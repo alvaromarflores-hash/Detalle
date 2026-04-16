@@ -1,0 +1,122 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body, html {
+    width: 100%; height: 100%;
+    background-color: #000; /* Negro puro */
+    font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
+    color: #fff;
+}
+
+#canvasEstrellas {
+    position: fixed; top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 1; /* Fondo */
+}
+
+.pantalla {
+    position: absolute; top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    display: flex; justify-content: center; align-items: center;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.oculto { opacity: 0 !important; pointer-events: none; z-index: -1 !important; }
+
+/* --- ELEMENTOS DEL UNIVERSO PROFESIONAL (Imágenes) --- */
+#universo-cinematico {
+    position: fixed; top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 2; /* Sobre las estrellas, bajo el login/texto */
+    transition: opacity 2s;
+}
+
+.astro { position: absolute; }
+
+.tierra {
+    width: 300px; /* Tamaño grande */
+    bottom: -50px; left: -50px;
+    filter: drop-shadow(0 0 30px rgba(0, 150, 255, 0.5)); /* Resplandor azul */
+}
+
+.luna {
+    width: 150px;
+    top: 50px; right: 50px;
+    filter: drop-shadow(0 0 40px rgba(255, 255, 255, 0.6)); /* Resplandor blanco */
+}
+
+.nave {
+    width: 60px; /* Pequeña, viajando */
+    /* La posición se maneja con JS */
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+    transform-origin: center;
+}
+
+/* --- LOGIN ELEGANTE (Glassmorphism) --- */
+#pantalla-login { z-index: 20; } /* Arriba de todo al inicio */
+
+.caja-cristal {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 50px; border-radius: 20px;
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center; width: 90%; max-width: 400px;
+}
+.caja-cristal h2 { font-weight: 300; letter-spacing: 4px; font-size: 1.5rem; margin-bottom: 30px; }
+.fila-fechas { display: flex; gap: 15px; }
+.campos-login { display: flex; flex-direction: column; gap: 15px; margin-bottom: 30px; }
+input { 
+    width: 100%; padding: 15px; background: rgba(0,0,0,0.3); color: white;
+    border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; outline: none; 
+    text-align: center; font-family: 'Montserrat', sans-serif;
+}
+input:focus { border: 1px solid rgba(255,255,255,0.4); }
+input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; }
+
+button { 
+    padding: 15px 30px; background: transparent; color: white; 
+    border: 1px solid #fff; border-radius: 8px; cursor: pointer; 
+    transition: 0.4s; width: 100%; font-family: 'Montserrat', sans-serif;
+    font-weight: 600; letter-spacing: 2px;
+}
+button:hover { background: #fff; color: #000; }
+#mensaje-error { color: #ff4757; margin-top: 20px; font-size: 0.8rem; }
+
+/* --- PRESENTACIÓN CINEMÁTICA (Texto Nítido) --- */
+#pantalla-presentacion { z-index: 10; pointer-events: none; }
+
+#contenedor-mensajes { text-align: center; width: 90%; max-width: 800px; position: relative; }
+
+.frase {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 2.5rem; /* Grande y legible */
+    line-height: 1.4;
+    color: white;
+    position: absolute; /* Superpuestas al inicio */
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+
+/* Brillo nítido para la frase final */
+.final-text {
+    font-weight: 900;
+    font-size: 4rem;
+    text-shadow: 0 0 20px #fff, 0 0 40px #a29bfe;
+}
+
+/* Estilo para cada palabra (span) */
+.frase span {
+    opacity: 0; /* Oculta */
+    display: inline-block;
+    transition: opacity 0.8s, filter 0.8s;
+    filter: blur(10px); /* Efecto borroso suave al aparecer */
+    white-space: pre; /* Mantiene los espacios */
+}
+
+/* La clase que JS pone a cada palabra */
+.palabra-visible {
+    opacity: 1 !important;
+    filter: blur(0px) !important;
+}
